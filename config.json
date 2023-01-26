@@ -1,7 +1,7 @@
 {
-    "Host": "n8.danbot.host",
-    "Port": "1176",
-    "AuthToken": "passwordLOL",
+    "Host": "",
+    "Port": "",
+    "AuthToken": "",
     "clientID": "",
     "clientSecret": "",
     "callbackURL": "",
