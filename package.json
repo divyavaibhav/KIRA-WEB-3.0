@@ -1,0 +1,23 @@
+{
+  "name": "web",
+  "version": "0.0.1",
+  "description": "webpage",
+  "main": "app.js",
+  "scripts": {
+      "start": "node app.js"
+  },
+  "engines": {
+      "node": "18.x"
+  },
+  "dependencies": {
+      "connect-mongo": "^4.6.0",
+      "discord-cross-hosting": "^2.3.2",
+      "ejs": "^3.1.8",
+      "express": "^4.18.2",
+      "express-session": "1.17.3",
+      "mongoose": "^6.8.4",
+      "passport": "^0.6.0",
+      "passport-discord": "^0.1.4",
+      "undici": "^5.15.1"
+  }
+}

@@ -1,0 +1,11 @@
+{
+    "Host": "n8.danbot.host",
+    "Port": "1176",
+    "AuthToken": "passwordLOL",
+    "clientID": "",
+    "clientSecret": "",
+    "callbackURL": "",
+    "statusApi": "",
+    "appPort": "",
+    "mongoURI": ""
+}

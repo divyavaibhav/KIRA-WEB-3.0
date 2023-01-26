@@ -1,0 +1,257 @@
+<style>
+  * {
+padding: 0;
+margin: 0;
+box-sizing: border-box;
+}
+body {
+background-color: #282b30;
+}
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: transparent; 
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: black;
+  border: 1px solid white;
+}
+section {
+height: 100vh;
+width: 100%;
+background-color: #282b30;
+display: flex;
+align-items: center;
+justify-content: center;
+flex-direction: column;
+margin-bottom: 5%;
+}
+
+img {
+max-width: 100%;
+vertical-align: middle;
+display: inline-block
+}
+
+.container {
+width: 100%;
+max-width: 500px;
+margin: 0 auto;
+padding: 20px;
+box-shadow: 15px 0px 20px #00000010;
+background-color: white;
+border-radius: 8px;
+margin-bottom: 50px;
+border: 5px solid #7289da;
+}
+.form-group {
+font-family: prompt, sans-serif;
+width: 100%;
+margin-top: 20px;
+font-size: 20px;
+}
+.form-group input,
+.form-group textarea {
+width: 100%;
+padding: 5px;
+font-size: 18px;
+border: 15x solid #7289da;
+margin-top: 5px;
+background-color: lightgray;
+}
+
+h2 {
+display: block;
+margin-top: 50px;
+padding-top: 60px;
+padding-bottom: 10;
+font-family: prompt, sans-serif;
+font-size: calc(1.325rem + .9vw);
+text-align: center;
+text-shadow: wheat;
+}
+textarea {
+resize: vertical;
+}
+button[type="submit"] {
+background-color: #7289da;
+width: 100%;
+border: none;
+outline: none;
+padding: 20px;
+font-size: 24px;
+border-radius: 8px;
+font-family: prompt, sans-serif;
+font-weight: bold;
+color: white;
+text-align: center;
+cursor: pointer;
+margin-top: 10px;
+transition: 0.3s ease background-color;
+}
+button[type="submit"]:hover {
+background-color: grey;
+}
+#status {
+width: 50%;
+max-width: 400px;
+text-align: center;
+padding: 10px;
+margin: 0 auto;
+border-radius: 8px;
+border: 15x solid black;
+}
+#status.success {
+font-family: prompt, sans-serif;
+font-weight: bold;
+color: white;
+background-color: #7289da;
+animation: status 4s ease forwards;
+}
+#status.error {
+font-family: prompt, sans-serif;
+font-weight: bold;
+color: white;
+background-color: #7289da;
+color: white;
+animation: status 4s ease forwards;
+}
+@keyframes status {
+0% {
+  opacity: 1;
+  pointer-events: all;
+}
+90% {
+  opacity: 1;
+  pointer-events: all;
+}
+100% {
+  opacity: 0;
+  pointer-events: none;
+}
+}
+</style>
+<script>
+window.addEventListener("DOMContentLoaded", function () {
+// get the form elements defined in your form HTML above
+
+var form = document.getElementById("my-form");
+// var button = document.getElementById("my-form-button");
+var status = document.getElementById("status");
+
+// Success and Error functions for after the form is submitted
+
+function success() {
+form.reset();
+status.classList.add("success");
+status.innerHTML = "Successfully Sumbited";
+}
+
+function error() {
+status.classList.add("error");
+status.innerHTML = "Something Went Wrong!";
+}
+
+// handle the form submission event
+
+form.addEventListener("submit", function (ev) {
+ev.preventDefault();
+var data = new FormData(form);
+ajax(form.method, form.action, data, success, error);
+});
+});
+
+// helper function for sending an AJAX request
+
+function ajax(method, url, data, success, error) {
+var xhr = new XMLHttpRequest();
+xhr.open(method, url);
+xhr.setRequestHeader("Accept", "application/json");
+xhr.onreadystatechange = function () {
+if (xhr.readyState !== XMLHttpRequest.DONE) return;
+if (xhr.status === 200) {
+  success(xhr.response, xhr.responseType);
+} else {
+  error(xhr.status, xhr.response, xhr.responseType);
+}
+};
+xhr.send(data);
+}
+</script>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charSet="utf-8" />
+<meta data-n-head="ssr" name="viewport" content="width=device-width, initial-scale=1">
+<meta data-n-head="ssr" name="author" content="Vaibhav">
+<meta data-n-head="ssr" name="language" content="English">
+<meta data-n-head="ssr" name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
+<meta data-n-head="ssr" data-hid="description" name="description" content="Kira is a Discord bot that helps to make your server great! It provides experience in a way you've never seen before.">
+<meta data-n-head="ssr" property="og:type" content="website">
+<meta data-n-head="ssr" property="og:site_name" value="Kirabot.site">
+<meta data-n-head="ssr" data-hid="og:url" property="og:url" content="https://kirabot.site">
+<meta data-n-head="ssr" data-hid="og:title" property="og:title" content="Kira - The Best Discord Bot">
+<meta data-n-head="ssr" data-hid="og:description" property="og:description" content="Kira is a Discord bot that helps to make your server great! It provides experience in a way you've never seen before.">
+<meta data-n-head="ssr" data-hid="og:image" property="og:image" content="https://ik.imagekit.io/iwzmmyzul/New_Folder/kiralogo_29GtLgw7b.png">
+<meta data-n-head="ssr" name="msapplication-TileColor" content="#ffb700">
+<meta data-n-head="ssr" name="msapplication-TileImage" content="/ms-icon-144x144.png">
+<meta data-n-head="ssr" name="twitter:card" content="summary">
+<meta data-n-head="ssr" name="twitter:site" content="@KiraBot">
+<meta data-n-head="ssr" http-equiv="X-UA-Compatible" content="IE=edge">
+<meta data-n-head="ssr" name="keywords" content="website, discord, discordapp, discord bot">
+<title>Kira - The Best Discord Bot</title>
+<meta name="theme-color" content="#ffb700">
+<link rel="apple-touch-icon" href="https://ik.imagekit.io/iwzmmyzul/New_Folder/kiralogo_29GtLgw7b.png">
+<link rel="shortcut icon" type="image/x-icon" href="https://ik.imagekit.io/iwzmmyzul/New_Folder/kiralogo_29GtLgw7b.png">
+<link rel="shortcut icon" href="https://ik.imagekit.io/iwzmmyzul/New_Folder/kiralogo_29GtLgw7b.png">
+<meta name="twitter:card" content="app">
+<meta name="twitter:title" content="Kira - The Best Discord Bot">
+<meta name="twitter:description" content="Kira is a Discord bot that helps to make your server great! It provides experience in a way you've never seen before.">
+<link rel="stylesheet" href="css/guide.css">
+</head>
+
+<body oncontextmenu="return false">
+<section>
+<h2 style="color: #7289da;">CONTACT FORM</h2>
+  <div class="container">
+    <form action="https://formspree.io/f/mwkjkwlz" method="POST" id="my-form">
+
+      <div class="form-group">
+        <span style="font-weight: bold; font-size: 25px; color: #424549;">
+          <img src="https://emoji.discadia.com/emojis/a7d2204d-db1a-4779-a028-601ea0b0e7f0.PNG" alt="Icon" width="26"
+          height="27" style="margin-bottom: 4px;"/>‎ User Name:</span>
+        <input type="text" id="firstName" name="firstName">
+      </div>
+
+      <div class="form-group">
+        <span style="font-weight: bold; font-size: 25px; color: #424549;">
+        <img src="https://emoji.discadia.com/emojis/6b7c83d4-b111-4e84-8272-fa0c28f7d308.PNG" alt="Icon" width="39"
+         height="40" style="margin-bottom: 4px;"/>‎ Discord User Tag:</span>
+        <input type="text" id="lastName" name="lastName">
+      </div>
+
+      <div class="form-group">
+        <span style="font-weight: bold; font-size: 25px; color: #424549;">
+        <img src="https://emoji.discadia.com/emojis/0f1e69a2-70ed-46fa-95e6-0601e23c234f.PNG" alt="Icon" width="37"
+          height="37" style="margin-bottom: 4px;"/>‎ Email Address:</span>
+        <input type="email" id="email" name="email">
+      </div>
+
+      <div class="form-group">
+        <span style="font-weight: bold; font-size: 25px; color: #424549;">
+        <img src="https://emoji.discadia.com/emojis/2c21e270-83cd-4160-9625-d4a42ba1f3d7.PNG" alt="Icon" width="26"
+          height="27" style="margin-bottom: 4px;"/>‎ Message:</span>
+        <textarea name="massage" id="massage" cols="30" rows="10"></textarea>
+      </div>
+
+      <div id="status"></div>
+      <button type="submit">Submit</button>
+    </form>
+  </div>
+</section>
+</body>
